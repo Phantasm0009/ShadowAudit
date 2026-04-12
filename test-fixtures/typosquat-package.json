@@ -1,0 +1,8 @@
+{
+  "name": "shadowaudit-typosquat-fixture",
+  "dependencies": {
+    "expresss": "4.18.2",
+    "reactt": "19.2.0",
+    "axois": "1.6.0"
+  }
+}

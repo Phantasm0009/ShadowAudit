@@ -1,0 +1,8 @@
+{
+  "name": "shadowaudit-auto-detect-test",
+  "private": true,
+  "dependencies": {
+    "lodash": "4.17.20",
+    "react": "^19.0.0"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "shadowaudit-safe-fixture",
+  "dependencies": {
+    "nanoid": "5.1.5",
+    "zod": "3.24.3",
+    "clsx": "2.1.1",
+    "date-fns": "4.1.0",
+    "kleur": "4.1.5"
+  }
+}

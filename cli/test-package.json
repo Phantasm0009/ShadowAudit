@@ -1,0 +1,8 @@
+{
+  "name": "shadowaudit-cli-test",
+  "private": true,
+  "dependencies": {
+    "lodash": "4.17.20",
+    "axios": "^1.7.9"
+  }
+}
