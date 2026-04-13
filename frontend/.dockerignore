@@ -1,0 +1,10 @@
+.env
+.git
+.next
+node_modules
+playwright-report
+*.log
+*.png
+AGENTS.md
+CLAUDE.md
+README.md

@@ -1,0 +1,241 @@
+{
+  "scan_id": "demo-scan-001",
+  "project_name": "shadowaudit-demo",
+  "timestamp": "2026-04-10T18:15:00Z",
+  "packages": [
+    {
+      "name": "next",
+      "version": "15.1.0",
+      "ecosystem": "npm"
+    },
+    {
+      "name": "react",
+      "version": "19.0.0",
+      "ecosystem": "npm"
+    },
+    {
+      "name": "lodash",
+      "version": "4.17.20",
+      "ecosystem": "npm"
+    },
+    {
+      "name": "axios",
+      "version": "1.7.9",
+      "ecosystem": "npm"
+    },
+    {
+      "name": "expresss",
+      "version": "4.19.2",
+      "ecosystem": "npm"
+    },
+    {
+      "name": "react-dom",
+      "version": "19.0.0",
+      "ecosystem": "npm"
+    },
+    {
+      "name": "styled-jsx",
+      "version": "5.1.6",
+      "ecosystem": "npm"
+    },
+    {
+      "name": "follow-redirects",
+      "version": "1.15.8",
+      "ecosystem": "npm"
+    },
+    {
+      "name": "body-parser",
+      "version": "1.20.3",
+      "ecosystem": "npm"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "package_name": "lodash",
+      "cve_id": "CVE-2021-23337",
+      "severity": "HIGH",
+      "summary": "Command injection through template handling in lodash.",
+      "affected_versions": [
+        "<4.17.21"
+      ]
+    },
+    {
+      "package_name": "axios",
+      "cve_id": "CVE-2023-45857",
+      "severity": "MEDIUM",
+      "summary": "Cross-site request forgery issue in axios request handling.",
+      "affected_versions": [
+        "<1.6.0"
+      ]
+    },
+    {
+      "package_name": "next",
+      "cve_id": "CVE-2025-10101",
+      "severity": "CRITICAL",
+      "summary": "Hypothetical SSR cache poisoning path in an outdated build chain.",
+      "affected_versions": [
+        "<15.1.1"
+      ]
+    },
+    {
+      "package_name": "react",
+      "cve_id": "CVE-2024-22222",
+      "severity": "LOW",
+      "summary": "Low-impact debug metadata exposure in development-only output.",
+      "affected_versions": [
+        "<19.0.1"
+      ]
+    }
+  ],
+  "maintainer_risks": [
+    {
+      "package_name": "lodash",
+      "risk_level": "high",
+      "reason": "Maintainer roster changed 21 days ago and package still exceeds 10k weekly downloads.",
+      "last_owner_change": "2026-03-20T12:00:00Z"
+    },
+    {
+      "package_name": "expresss",
+      "risk_level": "medium",
+      "reason": "Recent ownership change detected within the last 120 days.",
+      "last_owner_change": "2026-01-15T09:30:00Z"
+    },
+    {
+      "package_name": "body-parser",
+      "risk_level": "medium",
+      "reason": "Publisher rotation and a fresh release landed within the last quarter.",
+      "last_owner_change": "2026-02-18T14:10:00Z"
+    }
+  ],
+  "typosquat_results": [
+    {
+      "package_name": "expresss",
+      "similar_to": "express",
+      "similarity_score": 0.94,
+      "is_suspicious": true
+    }
+  ],
+  "behavior_analyses": [
+    {
+      "package_name": "lodash",
+      "risk_score": 7.4,
+      "flags": [
+        "network calls added",
+        "environment variable access"
+      ],
+      "ai_summary": "The latest publish introduces outbound requests during install and reads process environment variables without a clear feature need."
+    },
+    {
+      "package_name": "expresss",
+      "risk_score": 8.9,
+      "flags": [
+        "suspicious postinstall",
+        "obfuscated strings",
+        "encoded payload"
+      ],
+      "ai_summary": "This package adds a postinstall hook that decodes a compressed payload and reaches out to a previously unseen domain."
+    },
+    {
+      "package_name": "body-parser",
+      "risk_score": 4.6,
+      "flags": [
+        "install script changes"
+      ],
+      "ai_summary": "The release modifies packaging scripts and introduces a new post-pack validation step, but the behavior is only moderately suspicious."
+    }
+  ],
+  "overall_risk_score": 8.2,
+  "dependency_graph": {
+    "name": "shadowaudit-demo",
+    "version": "1.0.0",
+    "dependencies": {
+      "next": {
+        "version": "15.1.0",
+        "dependencies": {
+          "react": {
+            "version": "19.0.0",
+            "dependencies": {}
+          },
+          "react-dom": {
+            "version": "19.0.0",
+            "dependencies": {
+              "scheduler": {
+                "version": "0.25.0",
+                "dependencies": {}
+              }
+            }
+          },
+          "styled-jsx": {
+            "version": "5.1.6",
+            "dependencies": {}
+          }
+        }
+      },
+      "lodash": {
+        "version": "4.17.20",
+        "dependencies": {}
+      },
+      "axios": {
+        "version": "1.7.9",
+        "dependencies": {
+          "follow-redirects": {
+            "version": "1.15.8",
+            "dependencies": {}
+          },
+          "proxy-from-env": {
+            "version": "1.1.0",
+            "dependencies": {}
+          },
+          "form-data": {
+            "version": "4.0.1",
+            "dependencies": {
+              "mime-types": {
+                "version": "2.1.35",
+                "dependencies": {
+                  "mime-db": {
+                    "version": "1.52.0",
+                    "dependencies": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "expresss": {
+        "version": "4.19.2",
+        "dependencies": {
+          "body-parser": {
+            "version": "1.20.3",
+            "dependencies": {
+              "qs": {
+                "version": "6.13.0",
+                "dependencies": {}
+              },
+              "debug": {
+                "version": "4.3.7",
+                "dependencies": {
+                  "ms": {
+                    "version": "2.1.3",
+                    "dependencies": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "devDependencies": {
+      "eslint": {
+        "version": "9.8.0",
+        "dependencies": {
+          "@eslint/core": {
+            "version": "0.4.0",
+            "dependencies": {}
+          }
+        }
+      }
+    }
+  }
+}

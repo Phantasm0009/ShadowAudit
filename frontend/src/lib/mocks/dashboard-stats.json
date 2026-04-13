@@ -1,0 +1,55 @@
+{
+  "total_scans": 15,
+  "avg_risk_score": 5.58,
+  "critical_findings_count": 9,
+  "packages_analyzed": 157,
+  "most_common_vulns": [
+    {
+      "cve_id": "CVE-2021-23337",
+      "count": 6
+    },
+    {
+      "cve_id": "CVE-2025-62718",
+      "count": 4
+    },
+    {
+      "cve_id": "CVE-2026-4800",
+      "count": 3
+    },
+    {
+      "cve_id": "CVE-2024-22222",
+      "count": 2
+    },
+    {
+      "cve_id": "CVE-2025-27152",
+      "count": 2
+    }
+  ],
+  "most_risky_packages": [
+    {
+      "package_name": "axios",
+      "scan_count": 7,
+      "avg_risk_score": 8.34
+    },
+    {
+      "package_name": "lodash",
+      "scan_count": 8,
+      "avg_risk_score": 7.91
+    },
+    {
+      "package_name": "next",
+      "scan_count": 5,
+      "avg_risk_score": 7.44
+    },
+    {
+      "package_name": "body-parser",
+      "scan_count": 4,
+      "avg_risk_score": 6.95
+    },
+    {
+      "package_name": "react",
+      "scan_count": 10,
+      "avg_risk_score": 6.72
+    }
+  ]
+}

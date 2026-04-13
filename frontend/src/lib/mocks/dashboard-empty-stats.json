@@ -1,0 +1,8 @@
+{
+  "total_scans": 0,
+  "avg_risk_score": 0,
+  "critical_findings_count": 0,
+  "packages_analyzed": 0,
+  "most_common_vulns": [],
+  "most_risky_packages": []
+}
