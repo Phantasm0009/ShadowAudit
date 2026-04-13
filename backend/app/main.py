@@ -37,7 +37,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-api_v1_router = APIRouter(prefix="/api/v1")
+def build_api_router(prefix: str) -> APIRouter:
+    router = APIRouter(prefix=prefix)
+
+    @router.get("")
+    async def api_root() -> dict[str, str]:
+        return {"message": "ShadowAudit API v1"}
+
+    router.include_router(scan_router)
+    return router
 
 
 @app.on_event("startup")
@@ -69,18 +77,13 @@ async def health_check() -> dict[str, object]:
     }
 
 
-@api_v1_router.get("")
-async def api_root() -> dict[str, str]:
-    return {"message": "ShadowAudit API v1"}
-
-
-api_v1_router.include_router(scan_router)
-app.include_router(api_v1_router)
+app.include_router(build_api_router("/api/v1"))
+app.include_router(build_api_router("/v1"))
 
 
 @app.middleware("http")
 async def scan_guard_middleware(request: Request, call_next):
-    if request.method == "POST" and request.url.path == "/api/v1/scan":
+    if request.method == "POST" and request.url.path in {"/api/v1/scan", "/v1/scan"}:
         try:
             enforce_scan_rate_limit(request)
             timeout_seconds = float(
